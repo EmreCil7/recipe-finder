@@ -54,6 +54,10 @@ function toggleRecipeDetails(recipeId) {
         fetchRecipeDetails(recipeId);
     } else {
         detailsDiv.style.display = 'none';
+        detailsDiv.innerHTML = `
+            <h4>Missing Ingredients:</h4>
+            <ul>${detailsDiv.querySelector('ul').innerHTML}</ul>
+        `;
     }
 }
 
@@ -75,3 +79,4 @@ function fetchRecipeDetails(recipeId) {
             console.error('Error fetching recipe details:', error);
         });
 }
+
